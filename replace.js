@@ -8,7 +8,6 @@ product=product.replace(/%image%/g,json.image);
 product=product.replace(/%price%/g,json.price); 
 product=product.replace(/%nutrients%/g,json.nutrients);
 product=product.replace(/%description%/g,json.description);
-product=product.replace(/{%ID%}/g,json.id);
 
 if(json.organic===false){
    product=product.replace(/{%NOT_ORGANIC%}/g,"not-organic");

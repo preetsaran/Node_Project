@@ -9,16 +9,12 @@ var overview=fs.readFileSync("template.html");
 overview=overview+"";
 data=data+"";
 var json=JSON.parse(data);
-// console.log(json[0])
-//   data=data+"";  converted to string
-//  var json=JSON.parse(data); converted to Object
+
 myproduct=myproduct+"";
 
-//  console.log(json.length)
 var server=http.createServer(function(req,res){
-//    var url=req.url.split("/").pop();
      
-    if(req.url===""||req.url==="/overview")
+    if(req.url==="/"||req.url==="/overview"||req.url==="")
     {
       res.write(background);
       for(i=0;i<json.length;i++)
@@ -40,15 +36,15 @@ var server=http.createServer(function(req,res){
       else
     {
       var id=url.parse(req.url,true).query.id;
-           
-             product = replacehtml(json[id],myproduct);
+           console.log(id);
+           var  product = replacehtml(json[id],myproduct);
                res.write(product);
     
       
     }
     res.end();
 });
-    var port=process.env.PORT||4000
+    var port=process.env.PORT||4000;
            server.listen(port,function(){
            console.log("Server is listening");
 });
