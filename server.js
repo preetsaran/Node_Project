@@ -49,6 +49,6 @@ var server=http.createServer(function(req,res){
     res.end();
 });
     var port=process.env.PORT||4000
-           server.listen(PORT,function(){
+           server.listen(port,function(){
            console.log("Server is listening");
 });
